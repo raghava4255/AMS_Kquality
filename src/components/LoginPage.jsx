@@ -14,12 +14,10 @@ export const LoginPage = () => {
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shake, setShake] = useState(false);
-  const [isDark, setIsDark] = useState(true);
-
   // Sync body class with selected role and theme
   useEffect(() => {
-    document.body.className = `role-${role}${isDark ? '' : ' light-mode'}`;
-  }, [role, isDark
+    document.body.className = `role-${role} light-mode`;
+  }, [role
 
 
 
@@ -48,7 +46,7 @@ export const LoginPage = () => {
     // No autofill — user must type their own credentials
   };
 
-  const toggleTheme = () => setIsDark(prev => !prev);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,21 +81,12 @@ export const LoginPage = () => {
       <div style={styles.blob1} />
       <div style={styles.blob2} />
 
-      {/* Theme toggle — top right */}
-      <button
-        className="theme-toggle"
-        style={styles.themeBtn}
-        onClick={toggleTheme}
-        title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        id="login-theme-toggle"
-      >
-        {isDark ? <Sun size={18} /> : <Moon size={18} />}
-      </button>
+
 
       <div style={styles.cardWrapper} className={shake ? 'animate-shake' : ''}>
         {/* Logo Header */}
         <div style={styles.header}>
-          {/* <Logo size={46} variant="full" light={!isDark} /> */}
+          {/* <Logo size={46} variant="full" light={true} /> */}
           <img src={companylogo} style={styles.logo} alt="logo" />
 
           <p style={styles.subtitle}>Employee Attendance Management</p>

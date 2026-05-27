@@ -99,11 +99,9 @@ export const Dashboard = () => {
   const [adminTab, setAdminTab] = useState('overview'); // 'overview' | 'shifts' | 'attendance'
   const [totalWorkforce, setTotalWorkforce] = useState(user?.stats?.totalEmployees ?? 0);
 
-  /* ── Theme ── */
-  const [isDark, setIsDark] = useState(true);
   useEffect(() => {
-    document.body.className = isDark ? '' : 'light-mode';
-  }, [isDark]);
+    document.body.className = 'light-mode';
+  }, []);
 
   /* ── Modals ── */
   const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
@@ -810,19 +808,11 @@ export const Dashboard = () => {
       {/* Navbar */}
       <nav style={styles.navbar}>
         <div style={styles.navBrand}>
-          <Logo size={34} variant="full" light={!isDark} />
+          <Logo size={34} variant="full" light={true} />
         </div>
 
         <div style={styles.navUser}>
-          {/* Theme toggle */}
-          <button
-            id="dashboard-theme-toggle"
-            className="theme-toggle"
-            onClick={() => setIsDark(d => !d)}
-            title={isDark ? 'Light Mode' : 'Dark Mode'}
-          >
-            {isDark ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
+
 
           <Avatar src={user.avatar} name={user.name} role={user.role} size={42} />
           <div style={styles.userInfo}>
