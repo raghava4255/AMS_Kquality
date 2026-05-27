@@ -12,11 +12,11 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Migrate any old nexus_* keys from previous session
-    const legacyUser  = localStorage.getItem('nexus_user');
-    const legacyToken = localStorage.getItem('nexus_token');
-    if (legacyUser)  { localStorage.setItem(STORAGE_KEY_USER,  legacyUser);  localStorage.removeItem('nexus_user');  }
-    if (legacyToken) { localStorage.setItem(STORAGE_KEY_TOKEN, legacyToken); localStorage.removeItem('nexus_token'); }
+    // Migrate any old Kqualitysoft_* keys from previous session
+    const legacyUser  = localStorage.getItem('Kqualitysoft_user');
+    const legacyToken = localStorage.getItem('Kqualitysoft_token');
+    if (legacyUser)  { localStorage.setItem(STORAGE_KEY_USER,  legacyUser);  localStorage.removeItem('Kqualitysoft_user');  }
+    if (legacyToken) { localStorage.setItem(STORAGE_KEY_TOKEN, legacyToken); localStorage.removeItem('Kqualitysoft_token'); }
 
     // Load persisted auth
     const storedUser  = localStorage.getItem(STORAGE_KEY_USER);

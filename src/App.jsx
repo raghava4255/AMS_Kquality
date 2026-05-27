@@ -11,7 +11,7 @@ const MainLayout = () => {
     return (
       <div style={styles.loadingContainer}>
         <div style={styles.spinner}></div>
-        <div style={styles.loadingText}>Synchronizing Nexus Sessions...</div>
+        <div style={styles.loadingText}>Synchronizing Kqualitysoft Sessions...</div>
       </div>
     );
   }
