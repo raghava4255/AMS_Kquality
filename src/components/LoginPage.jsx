@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, Eye, EyeOff, Shield, Briefcase, Users, AlertCircle, ArrowRight, Sun, Moon } from 'lucide-react';
-import Logo from './Logo';
+// import Logo from './Logo';
+import companylogo from "../assets/company.png"
 
 export const LoginPage = () => {
   const { login } = useAuth();
@@ -75,7 +76,9 @@ export const LoginPage = () => {
       <div style={styles.cardWrapper} className={shake ? 'animate-shake' : ''}>
         {/* Logo Header */}
         <div style={styles.header}>
-          <Logo size={46} variant="full" light={!isDark} />
+          {/* <Logo size={46} variant="full" light={!isDark} /> */}
+          <img src={companylogo} style={styles.logo} alt="logo" />
+
           <p style={styles.subtitle}>Employee Attendance Management</p>
         </div>
 
@@ -87,9 +90,9 @@ export const LoginPage = () => {
             <div style={styles.roleSelectorLabel}>Select Access Role</div>
             <div style={styles.tabContainer}>
               {[
-                { id: 'employee', label: 'Employee',  Icon: Briefcase },
-                { id: 'manager',  label: 'Manager',   Icon: Users     },
-                { id: 'admin',    label: 'HR / Admin', Icon: Shield   },
+                { id: 'employee', label: 'Employee', Icon: Briefcase },
+                { id: 'manager', label: 'Manager', Icon: Users },
+                { id: 'admin', label: 'HR / Admin', Icon: Shield },
               ].map(({ id, label, Icon }) => (
                 <button
                   key={id}
@@ -212,11 +215,17 @@ const styles = {
   cardWrapper: {
     width: '100%', maxWidth: '460px',
     display: 'flex', flexDirection: 'column',
-    gap: '24px', zIndex: 10,
+    gap: '15px', zIndex: 10,
   },
   header: {
     display: 'flex', flexDirection: 'column',
-    alignItems: 'center', gap: '12px',
+    alignItems: 'center', gap: '0px',
+  },
+  logo: {
+    width: '100%',
+    maxWidth: '250px',
+    height: 'auto',
+    objectFit: 'contain',
   },
   subtitle: {
     color: 'var(--text-secondary)',
