@@ -3856,6 +3856,7 @@ export const Dashboard = () => {
       {/* ── Credential Approval Modal ── */}
       <CredentialApprovalModal
         isOpen={credentialModal.isOpen}
+        requireSignature={user?.role === 'admin'}
         onClose={() => setCredentialModal({ isOpen: false, requestId: null, type: null, decision: null })}
         onConfirm={(credentials) => {
           const { requestId, type, decision } = credentialModal;
